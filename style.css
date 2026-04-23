@@ -6,22 +6,23 @@
 }
 
 :root {
-  --green:      #009c3b;
-  --green-dark: #006d29;
-  --yellow:     #FFDF00;
-  --yellow-dark:#c8b000;
-  --blue:       #002776;
-  --blue-mid:   #0044bb;
-  --blue-dark:  #001a52;
-  --orange:     #FF6B35;
-  --pink:       #FF4B8B;
-  --teal:       #00C9A7;
-  --white:      #ffffff;
-  --off-white:  #fefdf7;
-  --radius:     20px;
-  --radius-sm:  12px;
-  --shadow:     0 8px 32px rgba(0,39,118,0.28);
-  --shadow-lg:  0 20px 60px rgba(0,0,0,0.35);
+  --green:         #009c3b;
+  --green-dark:    #006d29;
+  --green-deeper:  #004d1c;
+  --green-darkest: #001a09;
+  --green-mid:     #007a2e;
+  --green-deep:    #002e11;
+  --yellow:        #FFDF00;
+  --yellow-dark:   #c8b000;
+  --orange:        #FF6B35;
+  --pink:          #FF4B8B;
+  --teal:          #00C9A7;
+  --white:         #ffffff;
+  --off-white:     #fefdf7;
+  --radius:        20px;
+  --radius-sm:     12px;
+  --shadow:        0 8px 32px rgba(0,77,28,0.35);
+  --shadow-lg:     0 20px 60px rgba(0,0,0,0.35);
 }
 
 html {
@@ -31,7 +32,7 @@ html {
 
 body {
   font-family: 'Nunito', sans-serif;
-  background: var(--blue-dark);
+  background: var(--green-darkest);
   color: var(--white);
   overflow-x: hidden;
   line-height: 1.6;
@@ -91,16 +92,16 @@ body {
   align-items: center;
   gap: 24px;
   padding: 14px 40px;
-  background: rgba(0, 39, 118, 0.75);
+  background: rgba(0, 77, 28, 0.8);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border-bottom: 2px solid rgba(255,223,0,0.3);
+  border-bottom: 2px solid rgba(255,223,0,0.35);
   transition: background 0.3s, box-shadow 0.3s;
 }
 
 #navbar.scrolled {
-  background: rgba(0, 26, 82, 0.95);
-  box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+  background: rgba(0, 26, 9, 0.96);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.45);
 }
 
 .nav-logo {
@@ -143,7 +144,7 @@ body {
   gap: 8px;
   padding: 10px 18px;
   background: var(--yellow);
-  color: var(--blue);
+  color: var(--green-deeper);
   border: none;
   border-radius: 30px;
   font-family: 'Baloo 2', cursive;
@@ -214,7 +215,7 @@ body {
 
 .btn-primary {
   background: linear-gradient(135deg, var(--yellow), var(--orange));
-  color: var(--blue-dark);
+  color: var(--green-darkest);
   box-shadow: 0 6px 24px rgba(255,223,0,0.45);
 }
 
@@ -254,7 +255,7 @@ body {
   position: absolute;
   inset: 0;
   background: linear-gradient(135deg,
-    #009c3b 0%, #00c85a 20%, #FFDF00 40%, #FF6B35 60%, #002776 80%, #009c3b 100%);
+    #009c3b 0%, #00c85a 20%, #FFDF00 40%, #FF6B35 60%, #006d29 80%, #009c3b 100%);
   background-size: 400% 400%;
   animation: gradientShift 10s ease infinite;
 }
@@ -268,7 +269,7 @@ body {
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 10, 40, 0.48);
+  background: rgba(0, 20, 8, 0.45);
 }
 
 .hero-content {
@@ -412,7 +413,7 @@ section {
 
 /* ===== ACTIVITIES SECTION ===== */
 #activities {
-  background: linear-gradient(180deg, var(--blue-dark) 0%, #001060 100%);
+  background: linear-gradient(180deg, var(--green-darkest) 0%, var(--green-deep) 100%);
   max-width: 1300px;
   margin: 0 auto;
   padding: 80px 40px;
@@ -502,7 +503,7 @@ section {
   top: 14px;
   right: 14px;
   background: var(--yellow);
-  color: var(--blue-dark);
+  color: var(--green-darkest);
   font-family: 'Baloo 2', cursive;
   font-weight: 700;
   font-size: 0.8rem;
@@ -531,11 +532,11 @@ section {
   font-family: 'Baloo 2', cursive;
   font-size: clamp(2rem, 5vw, 3rem);
   font-weight: 900;
-  color: var(--blue-dark);
+  color: var(--green-deeper);
 }
 
 .vibes-sub {
-  color: rgba(0,26,82,0.7);
+  color: rgba(0,46,17,0.75);
   font-size: 1.05rem;
   margin-top: 6px;
   margin-bottom: 36px;
@@ -567,7 +568,7 @@ section {
   font-family: 'Baloo 2', cursive;
   font-size: clamp(1rem, 2.5vw, 1.4rem);
   font-weight: 700;
-  color: var(--blue-dark);
+  color: var(--green-deeper);
   line-height: 1.5;
   text-align: center;
   quotes: none;
@@ -585,7 +586,7 @@ section {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  border: 2px solid var(--blue-dark);
+  border: 2px solid var(--green-deeper);
   background: transparent;
   cursor: pointer;
   transition: background 0.2s, transform 0.2s;
@@ -593,7 +594,7 @@ section {
 }
 
 #carousel-dots button.active {
-  background: var(--blue-dark);
+  background: var(--green-deeper);
   transform: scale(1.3);
 }
 
@@ -601,7 +602,7 @@ section {
 .ticker-wrap {
   overflow: hidden;
   width: 100%;
-  background: var(--blue-dark);
+  background: var(--green-deeper);
   border-radius: 12px;
   padding: 10px 0;
 }
@@ -625,7 +626,7 @@ section {
 
 /* ===== PEOPLE SECTION ===== */
 #people {
-  background: linear-gradient(180deg, #001060 0%, var(--blue-dark) 100%);
+  background: linear-gradient(180deg, var(--green-deep) 0%, var(--green-darkest) 100%);
   padding: 80px 40px;
 }
 
@@ -711,7 +712,7 @@ section {
 
 /* ===== CTA SECTION ===== */
 #cta {
-  background: radial-gradient(ellipse at center, #0044bb 0%, #001a52 70%);
+  background: radial-gradient(ellipse at center, var(--green-mid) 0%, var(--green-darkest) 70%);
   text-align: center;
   padding: 100px 24px;
 }
@@ -784,7 +785,7 @@ section {
 
 /* ===== FOOTER ===== */
 #footer {
-  background: var(--blue-dark);
+  background: var(--green-darkest);
   text-align: center;
 }
 
@@ -794,7 +795,7 @@ section {
 
 .footer-stripe.green  { background: var(--green); }
 .footer-stripe.yellow { background: var(--yellow); }
-.footer-stripe.blue   { background: var(--blue-mid); }
+.footer-stripe.blue   { background: var(--green-dark); }
 
 .footer-content {
   padding: 40px 24px 32px;
