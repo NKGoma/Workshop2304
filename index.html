@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Verão Brasileiro 🇧🇷 Summer Activities</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700;900&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Confetti canvas (fixed, behind everything) -->
+  <canvas id="confetti-canvas" aria-hidden="true"></canvas>
+
+  <!-- Floating emoji layer -->
+  <div id="float-layer" aria-hidden="true"></div>
+
+  <!-- Hidden YouTube player (off-screen, needed for IFrame API) -->
+  <div id="yt-player-wrapper" aria-hidden="true">
+    <div id="yt-player"></div>
+  </div>
+
+  <!-- Sticky navigation -->
+  <nav id="navbar">
+    <div class="nav-logo">🇧🇷 Verão</div>
+    <ul class="nav-links">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#activities">Activities</a></li>
+      <li><a href="#vibes">Vibes</a></li>
+      <li><a href="#people">People</a></li>
+      <li><a href="#cta">Join Us</a></li>
+    </ul>
+    <button id="music-btn" aria-label="Play Brazilian background music" title="Toggle Brazilian music">
+      <span class="music-icon">🎵</span>
+      <span class="music-label">Brazilian Vibes</span>
+    </button>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section id="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-overlay" aria-hidden="true"></div>
+
+    <div class="hero-content">
+      <p class="hero-eyebrow">🇧🇷 bem-vindo ao</p>
+      <h1 class="hero-headline">Verão Brasileiro</h1>
+      <p class="hero-tagline">Summer Together!</p>
+      <p class="hero-subtitle">
+        Uma celebração incrível do espírito brasileiro —<br>
+        our company summer day awaits you!
+      </p>
+      <div class="hero-cta-group">
+        <a href="#activities" class="btn btn-primary">Explore Activities 🌊</a>
+        <a href="#cta" class="btn btn-outline">RSVP Now 🎉</a>
+      </div>
+
+      <div class="hero-people" aria-label="Brazilian team members coming together">
+        <span class="figure" style="--delay:0.0s">🧑🏽‍🦱</span>
+        <span class="figure" style="--delay:0.15s">👩🏾‍🦳</span>
+        <span class="figure" style="--delay:0.3s">🧔🏽</span>
+        <span class="figure" style="--delay:0.45s">👩🏽‍🦰</span>
+        <span class="figure" style="--delay:0.6s">🕺🏾</span>
+        <span class="figure" style="--delay:0.75s">💃🏽</span>
+        <span class="figure" style="--delay:0.9s">👨🏿‍🤝‍👨🏽</span>
+        <span class="figure" style="--delay:1.05s">🧑🏼‍🤝‍🧑🏾</span>
+      </div>
+    </div>
+
+    <div class="wave-divider" aria-hidden="true">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#001a52"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ===== ACTIVITIES GRID ===== -->
+  <section id="activities">
+    <div class="section-header" data-index="0">
+      <h2>🌟 What's Happening This Summer</h2>
+      <p>Pick your vibe — there's something for everyone under the Brazilian sun!</p>
+    </div>
+
+    <div class="activities-grid">
+
+      <article class="activity-card" data-index="0" style="--accent:#009c3b">
+        <div class="card-emoji">🏐</div>
+        <div class="card-body">
+          <h3>Beach Volleyball</h3>
+          <p>Spike, dive and celebrate on Copacabana-style golden-sand courts with your crew!</p>
+        </div>
+        <span class="card-tag">Sport</span>
+        <span class="join-badge">Join Us! 🙌</span>
+      </article>
+
+      <article class="activity-card" data-index="1" style="--accent:#FFDF00">
+        <div class="card-emoji">🍖</div>
+        <div class="card-body">
+          <h3>Churrasco BBQ</h3>
+          <p>Slow-grilled Brazilian meats and traditional sides around a sizzling fire pit.</p>
+        </div>
+        <span class="card-tag">Food</span>
+        <span class="join-badge">Join Us! 🙌</span>
+      </article>
+
+      <article class="activity-card" data-index="2" style="--accent:#FF6B35">
+        <div class="card-emoji">🥋</div>
+        <div class="card-body">
+          <h3>Capoeira Show</h3>
+          <p>Watch masters blend martial arts and dance under the open Brazilian summer sky.</p>
+        </div>
+        <span class="card-tag">Culture</span>
+        <span class="join-badge">Join Us! 🙌</span>
+      </article>
+
+      <article class="activity-card" data-index="3" style="--accent:#FF4B8B">
+        <div class="card-emoji">💃</div>
+        <div class="card-body">
+          <h3>Samba Night</h3>
+          <p>Learn samba from a real instructor — footwork and fun guaranteed for all levels!</p>
+        </div>
+        <span class="card-tag">Dance</span>
+        <span class="join-badge">Join Us! 🙌</span>
+      </article>
+
+      <article class="activity-card" data-index="4" style="--accent:#009c3b">
+        <div class="card-emoji">⚽</div>
+        <div class="card-body">
+          <h3>Beach Soccer</h3>
+          <p>Play the beautiful game on soft sand where every kick is a Ronaldinho moment.</p>
+        </div>
+        <span class="card-tag">Sport</span>
+        <span class="join-badge">Join Us! 🙌</span>
+      </article>
+
+      <article class="activity-card" data-index="5" style="--accent:#00C9A7">
+        <div class="card-emoji">🏄</div>
+        <div class="card-body">
+          <h3>Surfing Lessons</h3>
+          <p>Catch your first — or best — wave with guided lessons for all skill levels!</p>
+        </div>
+        <span class="card-tag">Adventure</span>
+        <span class="join-badge">Join Us! 🙌</span>
+      </article>
+
+      <article class="activity-card" data-index="6" style="--accent:#FFDF00">
+        <div class="card-emoji">🎉</div>
+        <div class="card-body">
+          <h3>Forró Dance Party</h3>
+          <p>Sway close to your partner under string lights to accordion-driven forró rhythms.</p>
+        </div>
+        <span class="card-tag">Dance</span>
+        <span class="join-badge">Join Us! 🙌</span>
+      </article>
+
+      <article class="activity-card" data-index="7" style="--accent:#002776">
+        <div class="card-emoji">🥥</div>
+        <div class="card-body">
+          <h3>Coconut Happy Hour</h3>
+          <p>Fresh coconut cocktails and tropical bites right on the beach as the sun dips.</p>
+        </div>
+        <span class="card-tag">Social</span>
+        <span class="join-badge">Join Us! 🙌</span>
+      </article>
+
+      <article class="activity-card" data-index="8" style="--accent:#FF4B8B">
+        <div class="card-emoji">🎭</div>
+        <div class="card-body">
+          <h3>Carnival Parade</h3>
+          <p>Don a vibrant costume and strut your best carnival walk to live drum percussion!</p>
+        </div>
+        <span class="card-tag">Culture</span>
+        <span class="join-badge">Join Us! 🙌</span>
+      </article>
+
+      <article class="activity-card" data-index="9" style="--accent:#00C9A7">
+        <div class="card-emoji">🚣</div>
+        <div class="card-body">
+          <h3>Water Sports Relay</h3>
+          <p>Kayaking, paddleboard races, and swimming competitions for teams of all levels.</p>
+        </div>
+        <span class="card-tag">Sport</span>
+        <span class="join-badge">Join Us! 🙌</span>
+      </article>
+
+      <article class="activity-card" data-index="10" style="--accent:#FF6B35">
+        <div class="card-emoji">🧘</div>
+        <div class="card-body">
+          <h3>Sunrise Yoga</h3>
+          <p>Greet the morning with a serene yoga flow on the beach as waves serenade you.</p>
+        </div>
+        <span class="card-tag">Wellness</span>
+        <span class="join-badge">Join Us! 🙌</span>
+      </article>
+
+      <article class="activity-card" data-index="11" style="--accent:#009c3b">
+        <div class="card-emoji">🎵</div>
+        <div class="card-body">
+          <h3>Live Axé Music Stage</h3>
+          <p>Live percussion and axé music pumping all afternoon long — pure Brazilian energy!</p>
+        </div>
+        <span class="card-tag">Music</span>
+        <span class="join-badge">Join Us! 🙌</span>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ===== VIBES BANNER ===== -->
+  <section id="vibes">
+    <div class="vibes-inner">
+      <h2>🎊 Brazilian Vibes</h2>
+      <p class="vibes-sub">Fun facts to get you in the mood 🌞</p>
+
+      <div id="quote-carousel" role="region" aria-live="polite" aria-label="Brazilian fun facts">
+        <div class="quote-slide active">
+          <blockquote>
+            "Brazil has the longest carnival in the world — over 5 days of<br>non-stop samba and sequins!" 🎭
+          </blockquote>
+        </div>
+        <div class="quote-slide">
+          <blockquote>
+            "Brazilians consume billions of fresh coconuts every year —<br>the original summer drink. 🥥"
+          </blockquote>
+        </div>
+        <div class="quote-slide">
+          <blockquote>
+            "Capoeira is the only martial art that looks like dancing —<br>born right here in Brazil. 🤸"
+          </blockquote>
+        </div>
+        <div class="quote-slide">
+          <blockquote>
+            "Brazilian summer (Dec–Mar) brings 1.5 million visitors a day<br>to Rio's beaches alone! 🌊"
+          </blockquote>
+        </div>
+        <div class="quote-slide">
+          <blockquote>
+            "The word 'saudade' has no English translation — it's the warm<br>longing for great people and great times. 💛"
+          </blockquote>
+        </div>
+      </div>
+
+      <div id="carousel-dots" role="tablist" aria-label="Quote navigation"></div>
+
+      <!-- Horizontal ticker -->
+      <div class="ticker-wrap" aria-hidden="true">
+        <div class="ticker-track">
+          <span>🇧🇷 Bem-vindo ao verão! &nbsp;☀️ It's summer, baby! &nbsp;🌊 Vai na onda! &nbsp;💚💛 Juntos somos mais fortes! &nbsp;🎊 Vem pro sol! &nbsp;🥥 Coco gelado! &nbsp;⚽ Jogo bonito! &nbsp;💃 Samba no pé! &nbsp;🎉 Carnaval every day! &nbsp;🏄 Surf's up! &nbsp;</span>
+          <span>🇧🇷 Bem-vindo ao verão! &nbsp;☀️ It's summer, baby! &nbsp;🌊 Vai na onda! &nbsp;💚💛 Juntos somos mais fortes! &nbsp;🎊 Vem pro sol! &nbsp;🥥 Coco gelado! &nbsp;⚽ Jogo bonito! &nbsp;💃 Samba no pé! &nbsp;🎉 Carnaval every day! &nbsp;🏄 Surf's up! &nbsp;</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PEOPLE SECTION ===== -->
+  <section id="people">
+    <div class="section-header" data-index="100">
+      <h2>🤝 Our People, Our Summer</h2>
+      <p>When Brazilians come together, the energy is unlike anything else on earth.</p>
+    </div>
+
+    <div class="people-grid">
+      <div class="people-emoji-mosaic" aria-label="Team members celebrating together">
+        <span>🧑🏽‍🦱</span><span>👩🏾</span><span>🧔🏽</span><span>👩🏽‍🦰</span>
+        <span>🕺🏾</span><span>💃🏽</span><span>🧑🏿</span><span>👩🏻‍🦱</span>
+        <span>🧑🏼</span><span>👨🏿‍🦲</span><span>👩🏾‍🦳</span><span>🧑🏽‍🤝‍🧑🏿</span>
+        <span>👯</span><span>🙌🏽</span><span>🤸🏾</span><span>🥳</span>
+      </div>
+
+      <div class="moment-cards">
+        <div class="moment-card" data-index="101">
+          <span class="moment-emoji">🏖️</span>
+          <p>"The best meetings happen barefoot on the sand"</p>
+        </div>
+        <div class="moment-card" data-index="102">
+          <span class="moment-emoji">🎯</span>
+          <p>"We work hard, but we play even harder"</p>
+        </div>
+        <div class="moment-card" data-index="103">
+          <span class="moment-emoji">🤗</span>
+          <p>"Summer brings us together, always"</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section id="cta">
+    <div class="cta-inner">
+      <h2>🌅 Ready for the Best Summer Ever?</h2>
+      <p>Mark your calendar and get ready —<br>it's going to be absolutely unforgettable! 🔥</p>
+
+      <form id="rsvp-form" novalidate>
+        <div class="form-row">
+          <input type="text"  name="name"  placeholder="Your name 👤" autocomplete="name" required />
+          <input type="email" name="email" placeholder="Your email 📧" autocomplete="email" required />
+        </div>
+        <button type="submit" class="btn btn-primary btn-big" id="cta-btn">
+          🎉 Eu Quero! (Count Me In!)
+        </button>
+      </form>
+      <p class="form-note">No spam — only sunshine and samba. 🌞</p>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer id="footer">
+    <div class="footer-stripe green"></div>
+    <div class="footer-stripe yellow"></div>
+    <div class="footer-stripe blue"></div>
+    <div class="footer-content">
+      <p class="footer-title">🇧🇷 Verão Juntos 2026</p>
+      <p>Made with 💚💛 in Brasil · Your Company Summer Day</p>
+      <div class="footer-icons" aria-hidden="true">
+        <span>🌞</span><span>🌴</span><span>🌊</span><span>⚽</span><span>💃</span><span>🎶</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- YouTube IFrame API -->
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <script src="script.js"></script>
+</body>
+</html>
